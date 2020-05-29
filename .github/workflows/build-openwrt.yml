@@ -104,10 +104,11 @@ jobs:
       run: |
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          find / -name "*combined*img*" | xargs -i mv -f {} ./artifact/
-          find / -name "*efi*img*" | xargs -i mv -f {} ./artifact/
-          find / -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
-          find / -name "*k3*" | xargs -i mv -f {} ./artifact/
+          cd openwrt
+          find ./bin -name "*combined*img*" | xargs -i mv -f {} ./artifact/
+          find ./bin -name "*efi*img*" | xargs -i mv -f {} ./artifact/
+          find ./bin -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
+          find ./bin -name "*k3*" | xargs -i mv -f {} ./artifact/
      
     - name: Upload artifact
       uses: actions/upload-artifact@master
