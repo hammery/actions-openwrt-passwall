@@ -102,9 +102,10 @@ jobs:
   
     - name: Assemble artifact
       run: |
+         
+          cd openwrt
           rm -rf ./artifact/
           mkdir -p ./artifact/
-          cd openwrt
           find ./bin -name "*combined*img*" | xargs -i mv -f {} ./artifact/
           find ./bin -name "*efi*img*" | xargs -i mv -f {} ./artifact/
           find ./bin -name "*sysupgrade*bin*" | xargs -i mv -f {} ./artifact/
