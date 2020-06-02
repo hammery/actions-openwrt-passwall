@@ -66,10 +66,11 @@ jobs:
 
     - name: Update feeds
       run: cd openwrt/package && git clone https://github.com/kenzok8/openwrt-packages.git
-           cd .. && ./scripts/feeds update -a
+           
 
     - name: Install feeds
       run: cd openwrt && ./scripts/feeds install -a
+           cd .. && ./scripts/feeds update -a
 
     - name: Load custom configuration
       run: |
